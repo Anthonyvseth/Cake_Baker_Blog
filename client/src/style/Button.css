@@ -13,8 +13,8 @@
 
 .btn--primary {
     background-color: var(--primary);
-    color: #242424;
-    border: 1px solid var(--primary;)
+    color: #d1c4e9;
+    border: 1px solid var(--primary);
 }
 
 .btn--outline {
@@ -51,7 +51,7 @@
 .btn--large:hover, .btn--medium:hover, .btn--mobile:hover {
     transition: all 0.3s ease-out;
     background: #ffff;
-    color: #242424;
+    color: #d1c4e9;
 }
 
 .btn--wide:hover {
@@ -73,7 +73,7 @@
 }
 
 .primary {
-    background-color: #242424;
+    background-color: #d1c4e9;
     color: #fff;
     border: none;
 }
@@ -91,5 +91,5 @@
 }
 
 .green:hover {
-    background-color: #242424;
+    background-color: #d1c4e9;
 }
