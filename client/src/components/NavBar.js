@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MdCake } from 'react-icons/md'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -32,8 +32,7 @@ function NavBar() {
         <IconContext.Provider value={{color: '#ffff'}}>
             <div className="navbar">
                  <div className="navbar-container container">
-                     <Link to='/' className="navbar-logo"
-                     onclick={closeMobileMenu}>
+                     <Link to='/' className="navbar-logo" onclick={closeMobileMenu}>
                      <MdCake className="navbar-icon" />
                         Lyss's Delish's
                      </Link>
@@ -42,22 +41,22 @@ function NavBar() {
                      </div>
                      <ul className={click ? 'nav-menu active' : 'nav-menu'}> 
                      <li className="nav-item">
-                         <Link to='/' className='nav-links'>
+                         <Link to='/' className='nav-links' onClick={handleClick}>
                              Home
                          </Link>
                      </li>
                      <li className="nav-item">
-                         <Link to='/About' className='nav-links'>
+                         <Link to='/About' className='nav-links' onClick={handleClick}>
                              About
                          </Link>
                      </li>
                      <li className="nav-item">
-                         <Link to='/services' className='nav-links'>
+                         <Link to='/services' className='nav-links' onClick={handleClick}>
                              Services
                          </Link>
                      </li>
                      <li className="nav-item">
-                         <Link to='/Discover' className='nav-links'>
+                         <Link to='/Discover' className='nav-links' onClick={handleClick}>
                              Discover
                          </Link>
                      </li>
@@ -67,8 +66,15 @@ function NavBar() {
                                  <Button buttonStyle="btn--outline">SIGN UP</Button>
                              </Link>
                          ): (
-                             <Button to='/sign-up' buttonStyle='btn--outline'
-                             buttonSize='btn--mobile'>SIGN UP</Button>
+                             <Link
+                                to='/sign-up' 
+                                className='btn-link'
+                                onClick={handleClick}
+                                >
+                                <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
+                                SIGN UP
+                                </Button>
+                             </Link>
                          )}
                      </li>
                      </ul>
