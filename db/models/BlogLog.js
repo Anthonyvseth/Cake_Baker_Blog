@@ -16,7 +16,7 @@ module.exports = new  Schema (
         ingredient: {
             type: Schema.Types.ObjectId,
             ref: 'ingredient'
-          ,}
+          },
         user_id: {
           type: Schema.Types.ObjectId,
           ref: 'users'
