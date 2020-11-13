@@ -12,6 +12,10 @@ module.exports = new Schema(
             unique: true,
             index: true
         },
+        profilImage_url: {
+            type: String,
+            required: true
+        },
         password_digest: {
             type: String,
             required: true

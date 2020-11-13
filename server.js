@@ -1,8 +1,10 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const logger = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
+const bodyParser = require('body-parser')
+const AppRouter = require('./routes/AppRouter')
+const connection = require('./db/connections')
 
 const PORT = process.env.PORT || 3005
 const app = express()
@@ -10,12 +12,11 @@ const app = express()
 app.use(logger('dev'))
 app.use(helmet())
 app.use(cors())
-
-app.get('/', (req,res) => {
-    res.json({
-        message: 'Welcome', 
-    })
-})
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.disable('X-Powered-By')
+app.get('/', (req,res) => {res.json({message: 'Server Working'})})
+app.use('/api', AppRouter)
 
 app.use((req ,res, next) => {
     const error = new Error(`Not Found - ${req.originalUrl}`)
@@ -23,17 +24,12 @@ app.use((req ,res, next) => {
     next(error)
 })
 
-app.use((error, req, res, next) => {
-    const statuseCode = res.statusCode === 200 ? 500 : res.statusCode
-    res.status(statuseCode)
-    res.json({
-        message: error.message,
-        stack: process.env.NODE_ENV === 'prodiction' ? '?' : error.stack  
-    })
-})
-
-app.listen(PORT, () => {
-        console.log('Database Connected')
-        console.log(`App listening on port ${PORT}`)
-  
+app.listen(PORT, async () => {
+    try {
+      await connection
+      console.log('Database Connected')
+      console.log(`App listening on port: ${PORT}`)
+    } catch (error) {
+      throw new Error('Connection Error')
+    }
 })
