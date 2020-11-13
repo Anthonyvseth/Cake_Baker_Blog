@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button } from '../Button'
+import { Button } from '../components/Button'
 import { Link } from 'react-router-dom'
 import '../style/Hero.css'
 
 function Hero({
-    lightbg, topLine, lightText, lightTextDesc, headline, description, buttonLabel, img, alt, imgstart
+    lightbg, topLine, lightText, lightTextDesc, headline, description, buttonLabel, img, alt, imgStart
 }) {
     return (
         <>
@@ -27,7 +27,7 @@ function Hero({
                     </div>
                     <div className="col">
                         <div className="home__hero-img-wrapper">
-                            <img src={src} alt={alt} classname="img.home__hero-img"/>
+                            <img src={img} alt={alt} classname="img.home__hero-img"/>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ module.exports = new  Schema (
           },
           image_url: {
             type: String,
-            required: true
+            required: false
           },
         ingredient: {
             type: Schema.Types.ObjectId,
