@@ -4,6 +4,7 @@ import { MdCake } from 'react-icons/md'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Button } from './Button'
 import '../style/NavBar.css'
+import { IconContext } from 'react-icons/lib'
 
 function NavBar() {
     const [click, setClick] = useState(false)
@@ -20,13 +21,19 @@ function NavBar() {
         }
     }
 
+    useEffect(() => {
+        showButton()
+    }, [])
+
     window.addEventListener('resize', showButton)
 
     return (
         <>
+        <IconContext.Provider value={{color: '#ffff'}}>
             <div className="navbar">
                  <div className="navbar-container container">
-                     <Link to='/' className="navbar-logo">
+                     <Link to='/' className="navbar-logo"
+                     onclick={closeMobileMenu}>
                      <MdCake className="navbar-icon" />
                         Lyss's Delish's
                      </Link>
@@ -67,7 +74,9 @@ function NavBar() {
                      </ul>
                  </div>
             </div>
+        </IconContext.Provider>
         </>
+        
     ) 
 }
 
