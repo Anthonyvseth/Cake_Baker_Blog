@@ -13,6 +13,10 @@ module.exports = new  Schema (
             type: String,
             required: true
           },
+        ingredient: {
+            type: Schema.Types.ObjectId,
+            ref: 'ingredient'
+          ,}
         user_id: {
           type: Schema.Types.ObjectId,
           ref: 'users'
