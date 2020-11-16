@@ -51,11 +51,6 @@ function NavBar() {
                          </NavLink>
                      </li>
                      <li className="nav-item">
-                         <NavLink to='/services' className='nav-links' onClick={handleClick}>
-                             Services
-                         </NavLink>
-                     </li>
-                     <li className="nav-item">
                          <NavLink to='/discover' className='nav-links' onClick={handleClick}>
                              Discover
                          </NavLink>

@@ -2,7 +2,7 @@ const { Schema } = require('mongoose')
 
 module.exports = new  Schema (
     {
-        Title: {
+        title: {
             type: String,
             required: true
         },

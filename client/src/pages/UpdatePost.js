@@ -43,7 +43,7 @@ export default class UpdatePost extends Component {
   }
 
   render() {
-    const { title, location, image_url, description } = this.state
+    const { title, image_url, description } = this.state
     return (
       <div className="upload content">
         <form className="flex-col" onSubmit={this.handleSubmit}>
@@ -51,12 +51,6 @@ export default class UpdatePost extends Component {
             placeholder="Title"
             name="title"
             value={title}
-            onChange={this.handleChange}
-          />
-          <TextInput
-            placeholder="Location"
-            name="location"
-            value={location}
             onChange={this.handleChange}
           />
           <TextInput

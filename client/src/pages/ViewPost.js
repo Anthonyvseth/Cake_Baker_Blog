@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { __GetPost } from '../components/services/PostServices'
 import '../style/PostView.css'
+
 export default class ViewPost extends Component {
   constructor() {
     super()

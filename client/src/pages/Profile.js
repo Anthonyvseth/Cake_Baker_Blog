@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-// import Card from '../components/Card'
+import Card from '../components/Card'
 import { __DeletePost } from '../components/services/PostServices'
 import { __GetProfile } from '../components/services/UserServices'
 import CreatePost from './CreatePost'
-import Hero from './Hero'
+// import Hero from './Hero'
+// import ViewPost from './ViewPost'
 
 export default class Profile extends Component {
   constructor() {
@@ -23,6 +24,7 @@ export default class Profile extends Component {
       console.log(this.props)
       const profileData = await __GetProfile(this.props.currentUser._id)
       this.setState({ posts: profileData.posts })
+      console.log(profileData)
     } catch (error) {
       this.setState({ postFetchError: true })
     }
@@ -41,13 +43,13 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="profile">
-        <CreatePost />
+      <CreatePost {...this.props} currentUser={this.props.currentUser}/>
         <div>
           {this.state.posts.length ? (
             <div className="post-content wrapper flex-row">
               {this.state.posts.map((post) => (
                 <div key={post._id}>
-                  <Hero
+                  <Card
                     onClick={() =>
                       this.props.history.push(`/posts/${post._id}`)
                     }
@@ -59,7 +61,7 @@ export default class Profile extends Component {
                       </div>
                     </div>
                     <img src={post.image_url} alt="sf" />
-                  </Hero>
+                  </Card>
                   <div className="flex-row button-wrapper">
                     <button
                       onClick={() =>

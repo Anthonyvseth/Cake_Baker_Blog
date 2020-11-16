@@ -4,8 +4,7 @@ module.exports = new Schema(
     {
         ingredient: {
             type: String,
-            required: true
-        },
+            required: false
         
     }
 )

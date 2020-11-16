@@ -38,16 +38,16 @@ export default class CreatePost extends Component {
             onChange={this.handleChange}
           />
           <TextInput
-            placeholder="Image Url"
-            name="image_url"
-            value={image_url}
-            onChange={this.handleChange}
-          />
-          <TextInput
             fieldType="textfield"
             name="description"
             placeholder="Description"
             value={description}
+            onChange={this.handleChange}
+          />
+            <TextInput
+            placeholder="Image Url"
+            name="image_url"
+            value={image_url}
             onChange={this.handleChange}
           />
           <button>Upload</button>

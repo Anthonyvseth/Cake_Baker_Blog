@@ -12,7 +12,7 @@ import ViewPost from '../pages/ViewPost'
 import { __CheckSession } from '../components/services/UserServices'
 import Layout from './Layout'
 import ProtectedRoute from './ProtectedRoute'
-import Navbar from './NavBar'
+// import Navbar from './NavBar'
 import About from '../pages/About'
 import { aboutObj } from '../pages/HomePage/Data'
 
@@ -61,7 +61,6 @@ class Router extends Component {
     render() {
       return (
         <main>
-        <Navbar />
           {this.state.pageLoading ? (
             <h3>Loading...</h3>
           ) : (
