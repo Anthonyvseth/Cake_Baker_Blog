@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { MdCake } from 'react-icons/md'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Button } from './Button'
@@ -41,40 +41,57 @@ function NavBar() {
                      </div>
                      <ul className={click ? 'nav-menu active' : 'nav-menu'}> 
                      <li className="nav-item">
-                         <Link to='/' className='nav-links' onClick={handleClick}>
+                         <NavLink to='/' className='nav-links' onClick={handleClick}>
                              Home
-                         </Link>
+                         </NavLink>
                      </li>
                      <li className="nav-item">
-                         <Link to='/About' className='nav-links' onClick={handleClick}>
+                         <NavLink to='/about' className='nav-links' onClick={handleClick}>
                              About
-                         </Link>
+                         </NavLink>
                      </li>
                      <li className="nav-item">
-                         <Link to='/services' className='nav-links' onClick={handleClick}>
+                         <NavLink to='/services' className='nav-links' onClick={handleClick}>
                              Services
-                         </Link>
+                         </NavLink>
                      </li>
                      <li className="nav-item">
-                         <Link to='/Discover' className='nav-links' onClick={handleClick}>
+                         <NavLink to='/discover' className='nav-links' onClick={handleClick}>
                              Discover
-                         </Link>
+                         </NavLink>
                      </li>
                      <li className="nav-btn">
                          {button ? ( 
-                             <Link to='/sign-up' className='btn-link'>
+                             <NavLink to='/register' className='nav-active'>
                                  <Button buttonStyle="btn--outline">SIGN UP</Button>
-                             </Link>
+                             </NavLink>
                          ): (
-                             <Link
-                                to='/sign-up' 
-                                className='btn-link'
+                             <NavLink
+                                to='/register' 
+                                activeclassName='nav-active'
                                 onClick={handleClick}
                                 >
                                 <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
                                 SIGN UP
                                 </Button>
-                             </Link>
+                             </NavLink>
+                         )}
+                     </li>
+                     <li className="nav-btn">
+                         {button ? ( 
+                             <NavLink to='/login' className='nav-active'>
+                                 <Button buttonStyle="btn--outline">LOG IN</Button>
+                             </NavLink>
+                         ): (
+                             <NavLink
+                                to='/login' 
+                                activeclassName='nav-active'
+                                onClick={handleClick}
+                                >
+                                <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
+                                LOG IN
+                                </Button>
+                             </NavLink>
                          )}
                      </li>
                      </ul>

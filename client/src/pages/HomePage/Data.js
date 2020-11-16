@@ -9,3 +9,15 @@ export const homeObjOne = {
     img: '/images/FlowerCake.png',
     alt: 'photo'
 }
+
+export const aboutObj= {
+    lightbg: true,
+    lightTextDesc: true,
+    topLine: 'Who am I',
+    headline: 'About me',
+    description: 'This cake is made with buttercream flowers. Learn how to make this design and a wonderfully tasting cake!',
+    buttonLabel: 'follow my social',
+    imgStart: '',
+    img: '/images/AVS01991.png',
+    alt: 'photo'
+}

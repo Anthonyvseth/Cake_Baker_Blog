@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'PT Sans', 'abril fatface', sans-serif;
+}
+
+.navbar {
+  font-family: 'Abril Fatface', cursive; 
 }
