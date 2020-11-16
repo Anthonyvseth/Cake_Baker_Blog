@@ -3,7 +3,7 @@ import NavBar from './NavBar'
 
 export default ({ children, authenticated, currentUser }) => (
   <div>
-    <NavBar
+    <div
       authenticated={authenticated}
       currentUser={currentUser}
       className="header-elevated"

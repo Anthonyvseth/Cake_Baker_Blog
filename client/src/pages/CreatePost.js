@@ -7,7 +7,6 @@ export default class CreatePost extends Component {
     super()
     this.state = {
       title: '',
-      location: '',
       image_url: '',
       description: ''
     }
@@ -28,7 +27,7 @@ export default class CreatePost extends Component {
   }
 
   render() {
-    const { title, location, image_url, description } = this.state
+    const { title, image_url, description } = this.state
     return (
       <div className="upload content">
         <form className="flex-col" onSubmit={this.handleSubmit}>
@@ -36,12 +35,6 @@ export default class CreatePost extends Component {
             placeholder="Title"
             name="title"
             value={title}
-            onChange={this.handleChange}
-          />
-          <TextInput
-            placeholder="Location"
-            name="location"
-            value={location}
             onChange={this.handleChange}
           />
           <TextInput

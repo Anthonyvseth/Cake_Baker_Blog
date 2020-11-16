@@ -13,6 +13,8 @@ import { __CheckSession } from '../components/services/UserServices'
 import Layout from './Layout'
 import ProtectedRoute from './ProtectedRoute'
 import Navbar from './NavBar'
+import About from '../pages/About'
+import { aboutObj } from '../pages/HomePage/Data'
 
 class Router extends Component {
     constructor() {
@@ -92,17 +94,17 @@ class Router extends Component {
                   </Layout>
                 )}
               />
-              {/* <Route
-                path="/discover"
+              <Route
+                path="/about"
                 component={(props) => (
                   <Layout
                     currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}
                   >
-                    <Discover {...props} />
+                    <About {...aboutObj} />
                   </Layout>
                 )}
-              /> */}
+              /> 
               <Route
                 path="/posts/:post_id"
                 component={(props) => (

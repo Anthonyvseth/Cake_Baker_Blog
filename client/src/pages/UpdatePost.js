@@ -6,7 +6,6 @@ export default class UpdatePost extends Component {
     super()
     this.state = {
       title: '',
-      location: '',
       image_url: '',
       description: ''
     }

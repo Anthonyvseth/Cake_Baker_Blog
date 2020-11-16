@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import Card from '../components/Card'
+// import Card from '../components/Card'
 import { __DeletePost } from '../components/services/PostServices'
 import { __GetProfile } from '../components/services/UserServices'
+import CreatePost from './CreatePost'
+import Hero from './Hero'
 
 export default class Profile extends Component {
   constructor() {
@@ -39,12 +41,13 @@ export default class Profile extends Component {
   render() {
     return (
       <div className="profile">
+        <CreatePost />
         <div>
           {this.state.posts.length ? (
             <div className="post-content wrapper flex-row">
               {this.state.posts.map((post) => (
                 <div key={post._id}>
-                  <Card
+                  <Hero
                     onClick={() =>
                       this.props.history.push(`/posts/${post._id}`)
                     }
@@ -56,7 +59,7 @@ export default class Profile extends Component {
                       </div>
                     </div>
                     <img src={post.image_url} alt="sf" />
-                  </Card>
+                  </Hero>
                   <div className="flex-row button-wrapper">
                     <button
                       onClick={() =>
