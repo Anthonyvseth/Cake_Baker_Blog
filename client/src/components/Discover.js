@@ -13,23 +13,29 @@ export default class Discover extends Component {
   }
 
   componentDidMount() {
-    this.getPosts()
+    this.fetchPosts()
   }
 
-  getPosts = async () => {
+  fetchPosts = async () => {
     try {
       const posts = await __GetPosts(this.state.currentPage)
+      console.log(posts)
       this.setState({ posts: [...this.state.posts, ...posts] })
     } catch (error) {
       console.log(error)
     }
   }
 
-  incrementPage = () =>
+  incrementPage = () => {
+    try {
     this.setState(
-      (prevstate) => ({ currentPage: prevstate.currentPage + 1 }),
+      (prevState) => ({ currentPage: prevState.currentPage + 1 }),
       () => this.getPosts()
     )
+    } catch (error) {
+      throw error
+    }
+  }
 
   render() {
     const { posts } = this.state

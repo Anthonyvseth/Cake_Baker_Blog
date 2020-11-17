@@ -12,7 +12,7 @@ export const __UploadPost = async (formData, userId) => {
 export const __GetPosts = async (page, limit) => {
     try {
         const res = await ApiClient.get(`/posts?page=${page || 1}&limit${limit || 10}`)
-        return res.Data
+        return res.data
     } catch (error) {
         throw error
     }

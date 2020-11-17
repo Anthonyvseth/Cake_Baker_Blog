@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import CreatePost from '../pages/CreatePost'
-// import Discover from '../pages/Discover'
+import Discover from '../components/Discover'
 import Home from '../pages/HomePage/Home'
 // import LandingPage from '../pages/LandingPage'
 import Profile from '../pages/Profile'
@@ -101,6 +101,16 @@ class Router extends Component {
                     authenticated={this.state.authenticated}
                   >
                     <About {...aboutObj} />
+                  </Layout>
+                )}
+                /> 
+                <Route
+                path="/discover"
+                component={(props) => (
+                  <Layout
+                  currentUser={this.state.currentUser}
+                    authenticated={this.state.authenticated}>
+                    <Discover {...props}/>
                   </Layout>
                 )}
               /> 

@@ -7,7 +7,7 @@ const GetPosts = async (req, res) => {
     .limit(parseInt(limit))
     .skip(offset)
     .sort({ title: 'desc' })
-  res.send({ results: posts.length, posts })
+  res.send(posts)
 }
 
 const GetPostById = async (req, res) => {

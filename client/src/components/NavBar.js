@@ -52,7 +52,7 @@ function NavBar() {
                      </li>
                      <li className="nav-item">
                          <NavLink to='/discover' className='nav-links' onClick={handleClick}>
-                             Discover
+                             post
                          </NavLink>
                      </li>
                      <li className="nav-btn">
