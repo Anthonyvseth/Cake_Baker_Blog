@@ -15,7 +15,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.disable('X-Powered-By')
-app.get('/', (req,res) => {res.json({message: 'Server Working'})})
+app.get('/api', (req,res) => {res.json({message: 'Server Working'})})
 app.use('/api', AppRouter)
 
 app.use((req ,res, next) => {

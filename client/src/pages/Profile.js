@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import { __DeletePost } from '../components/services/PostServices'
 import { __GetProfile } from '../components/services/UserServices'
 import CreatePost from './CreatePost'
+import UpdatePost from './UpdatePost'
 // import Hero from './Hero'
 // import ViewPost from './ViewPost'
 
@@ -33,7 +34,9 @@ export default class Profile extends Component {
   deletePost = async (id) => {
     try {
       const postsToKeep = this.state.posts.filter((post) => post._id !== id)
+      console.log(id)
       this.setState({ posts: postsToKeep })
+      console.log(postsToKeep)
       await __DeletePost(id)
     } catch (error) {
       console.log(error)
@@ -63,11 +66,7 @@ export default class Profile extends Component {
                     <img src={post.image_url} alt="sf" />
                   </Card>
                   <div className="flex-row button-wrapper">
-                    <button
-                      onClick={() =>
-                        this.props.history.push(`/edit/${post._id}`)
-                      }
-                    >
+                    <button onClick={() =>this.props.history.push(`/edit/${post._id}`)}>
                       Edit
                     </button>
                     <button onClick={() => this.deletePost(post._id)}>

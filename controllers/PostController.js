@@ -36,20 +36,28 @@ const CreatePost = async (req, res) => {
 }
 
 const DeletePost = async (req, res) => {
-  await Comment.deleteMany({ _id: { $in: post.comments } })
+  try {
+  // await Comment.deleteMany({ _id: { $in: post.comments } })
   await BlogLog.findByIdAndDelete(req.params.post_id)
   res.send({ msg: 'Post deleted' })
+  } catch(error) {
+    throw error
+  }
 }
 
 const UpdatePost = async (req, res) => {
+  try {
   await BlogLog.findByIdAndUpdate(
     req.params.post_id,
     {
       ...req.body
     },
     { new: true, useFindAndModify: false },
-    (err, (d) => (err ? err : res.send(d)))
+    // (err, (d) => (err ? err : res.send(d)))
   )
+  } catch(error) {
+    throw error
+  }
 }
 
 module.exports = {

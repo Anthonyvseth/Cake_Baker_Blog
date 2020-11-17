@@ -40,7 +40,9 @@ export const __UpdatePost = async (formData, postId) => {
 export const __DeletePost = async (postId) => {
   try {
     const res = await ApiClient.delete(`/posts/${postId}?active=true`)
-    return res
+    // `/posts/${postId}?active=true`
+    console.log(res.data)
+    return res.data
   } catch (error) {
     throw error
   }

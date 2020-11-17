@@ -89,6 +89,23 @@ function NavBar() {
                              </NavLink>
                          )}
                      </li>
+                     <li className="nav-btn">
+                         {button ? ( 
+                             <NavLink to="/" onClick={() => localStorage.clear()} className='nav-active'>
+                                 <Button buttonStyle="btn--outline">LOG OUT</Button>
+                             </NavLink>
+                         ): (
+                             <NavLink
+                                activeclassName='nav-active'
+                                to="/" onClick={() => localStorage.clear()}
+                                >
+                                <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
+                                LOG OUT
+                                </Button>
+                             </NavLink>
+                         )}
+                         
+                     </li>
                      </ul>
                  </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __GetPost, __UpdatePost } from '../components/services/PostServices'
+
 export default class UpdatePost extends Component {
   constructor() {
     super()
