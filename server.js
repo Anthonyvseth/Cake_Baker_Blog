@@ -5,18 +5,23 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const AppRouter = require('./routes/AppRouter')
 const connection = require('./db/connections')
+const path = require('path')
 
 const PORT = process.env.PORT || 3005
 const app = express()
 
 app.use(logger('dev'))
-app.use(helmet())
+app.use(helmet({ contentSecurityPolicy: false }))
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.disable('X-Powered-By')
 app.get('/api', (req,res) => {res.json({message: 'Server Working'})})
 app.use('/api', AppRouter)
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+)
 
 app.use((req ,res, next) => {
     const error = new Error(`Not Found - ${req.originalUrl}`)

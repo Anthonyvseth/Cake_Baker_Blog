@@ -8,5 +8,10 @@ const connection = mongoose.connect('mongodb://localhost:27017/blog_log', {
 })
 
 mongoose.set('debug', true)
+mongoose.connection(
+    process.env.NODE_ENV === 'production'
+      ? process.env.DATABASE_URL
+      : '<Your local db connection>'
+  )
 
 module.exports = connection
