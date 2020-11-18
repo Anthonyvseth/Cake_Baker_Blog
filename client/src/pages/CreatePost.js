@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import TextInput from '../components/TextInput'
 import { __UploadPost } from '../components/services/PostServices'
 
@@ -50,7 +51,9 @@ export default class CreatePost extends Component {
             value={image_url}
             onChange={this.handleChange}
           />
-          <button>Upload</button>
+          <NavLink to='/profile' >
+          <button onClick>Upload</button>
+          </NavLink>
         </form>
       </div>
     )

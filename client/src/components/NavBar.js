@@ -21,9 +21,12 @@ function NavBar() {
         }
     }
 
+    
     useEffect(() => {
         showButton()
     }, [])
+
+    
 
     window.addEventListener('resize', showButton)
 
@@ -52,7 +55,7 @@ function NavBar() {
                      </li>
                      <li className="nav-item">
                          <NavLink to='/discover' className='nav-links' onClick={handleClick}>
-                             post
+                             UserPost
                          </NavLink>
                      </li>
                      <li className="nav-btn">

@@ -18,7 +18,7 @@ function Hero({
                             <p className={lightTextDesc ? 'home__hero-subtitle' : 'home__hero=subtitle dark'}>
                                 {description}
                             </p>
-                            <Link to='/register'>
+                            <Link>
                                 <Button buttonSize='btn--wide' buttonColor='blue'>
                                 {buttonLabel}
                                 </Button>

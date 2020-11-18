@@ -110,6 +110,7 @@ class Router extends Component {
                   <Layout
                   currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}>
+                  
                     <Discover {...props}/>
                   </Layout>
                 )}

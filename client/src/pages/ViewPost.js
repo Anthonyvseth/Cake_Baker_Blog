@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { __GetPost } from '../components/services/PostServices'
 import '../style/PostView.css'
+import  CreateComment  from '../components/CreateComment'
 
 export default class ViewPost extends Component {
   constructor() {
@@ -28,11 +29,13 @@ export default class ViewPost extends Component {
     const { post } = this.state
     if (this.state.post) {
       return (
+        
         <div className="posts detail">
           <div className="content-wrapper flex-row">
             <div className="left-content col-1">
               <div className="image-wrapper">
                 <img src={post.image_url} alt="post" />
+                <CreateComment {...this.props} currentUser={this.props.currentUser}/>
               </div>
             </div>
             <div className="right-content col-2 flex-col">

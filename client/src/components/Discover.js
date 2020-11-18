@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import { __GetPosts } from '../components/services/PostServices'
 import '../style/Discover.css'
 
+
 export default class Discover extends Component {
   constructor() {
     super()
@@ -68,7 +69,9 @@ export default class Discover extends Component {
                   </div>
                 </div>
                 <img src={post.image_url} alt="sf" />
+                
               </Card>
+              
             ))
           ) : (
             <h3>No Posts</h3>

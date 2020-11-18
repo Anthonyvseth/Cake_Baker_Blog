@@ -8,9 +8,17 @@ export default class SignIn extends Component {
     this.state = {
       email: '',
       password: '',
-      formError: false
+      formError: false,
+      login: true
     }
+    this.changeState = this.changeState.bind(this)
   }
+
+  changeState = () => {
+    this.setState({
+      login: !this.state.login
+    });
+  };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value, formError: false })
@@ -29,10 +37,14 @@ export default class SignIn extends Component {
     }
   }
   render() {
-    const { email, password } = this.state
+    const { email, password, login } = this.state
     return (
       <div className="signin flex-col">
-        <form className="flex-col" onSubmit={this.handleSubmit}>
+        <form 
+        type="button"
+          className={login ? "btn-primary" : "btn-danger"}
+          onClick={this.changeState} 
+           onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Email"
             name="email"
