@@ -6,7 +6,7 @@ import { Button } from './Button'
 import '../style/NavBar.css'
 import { IconContext } from 'react-icons/lib'
 
-function NavBar() {
+function NavBar({ authenticated, currentUser, className }) {
     const [click, setClick] = useState(false)
     const [button, setButton] = useState(true)
 
@@ -30,8 +30,62 @@ function NavBar() {
 
     window.addEventListener('resize', showButton)
 
-    return (
-        <>
+    return authenticated && currentUser ?  (
+        <header classname={className}>
+        <IconContext.Provider value={{color: '#ffff'}}>
+            <div className="navbar">
+                 <div className="navbar-container container">
+                     <Link to='/' className="navbar-logo" onclick={closeMobileMenu}>
+                     <MdCake className="navbar-icon" />
+                        Lyss's Delish's
+                     </Link>
+                     <div className="menu-icon" onClick={handleClick}>
+                     {click ? <FaTimes /> : <FaBars />}
+                     </div>
+                     <ul className={click ? 'nav-menu active' : 'nav-menu'}> 
+                     <li className="nav-item">
+                         <NavLink to='/' className='nav-links' onClick={handleClick}>
+                             Home
+                         </NavLink>
+                     </li>
+                     <li className="nav-item">
+                         <NavLink to='/about' className='nav-links' onClick={handleClick}>
+                             About
+                         </NavLink>
+                     </li>
+                     <li className="nav-item">
+                         <NavLink to='/discover' className='nav-links' onClick={handleClick}>
+                             Discover
+                         </NavLink>
+                     </li>
+                     <li className="nav-item">
+                         <NavLink to='/profile' className='nav-links' onClick={handleClick}>
+                             Profile
+                         </NavLink>
+                     </li>
+                     <li className="nav-btn">
+                         {button ? ( 
+                             <NavLink to="/" onClick={() => localStorage.clear()} className='nav-active'>
+                                 <Button buttonStyle="btn--outline">LOG OUT</Button>
+                             </NavLink>
+                         ): (
+                             <NavLink
+                                activeclassName='nav-active'
+                                to="/" onClick={() => localStorage.clear()}
+                                >
+                                <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
+                                LOG OUT
+                                </Button>
+                             </NavLink>
+                         )}
+                     </li>
+                     </ul>
+                 </div>
+            </div>
+        </IconContext.Provider>
+        </header>
+        
+    ) : (   <header classname={className}>
         <IconContext.Provider value={{color: '#ffff'}}>
             <div className="navbar">
                  <div className="navbar-container container">
@@ -92,30 +146,14 @@ function NavBar() {
                              </NavLink>
                          )}
                      </li>
-                     <li className="nav-btn">
-                         {button ? ( 
-                             <NavLink to="/" onClick={() => localStorage.clear()} className='nav-active'>
-                                 <Button buttonStyle="btn--outline">LOG OUT</Button>
-                             </NavLink>
-                         ): (
-                             <NavLink
-                                activeclassName='nav-active'
-                                to="/" onClick={() => localStorage.clear()}
-                                >
-                                <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
-                                LOG OUT
-                                </Button>
-                             </NavLink>
-                         )}
-                         
-                     </li>
                      </ul>
                  </div>
             </div>
         </IconContext.Provider>
-        </>
+        </header>
         
-    ) 
+
+    )
 }
 
 export default NavBar
