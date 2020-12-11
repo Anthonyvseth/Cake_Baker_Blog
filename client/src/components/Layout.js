@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
 
-export default ({ children, authenticated, currentUser }) => (
+const Layout = ({ children, authenticated, currentUser }) => (
   <div>
     <NavBar
       authenticated={authenticated}
@@ -11,4 +11,4 @@ export default ({ children, authenticated, currentUser }) => (
     {children}
   </div>
 )
-
+export default Layout 

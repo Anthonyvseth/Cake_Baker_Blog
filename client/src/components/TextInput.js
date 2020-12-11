@@ -1,5 +1,4 @@
-
-export default (props) =>
+const TextInput = (props) =>
 props.fieldType === 'textfield' ? (
   <textarea
     type={props.type}
@@ -18,3 +17,4 @@ props.fieldType === 'textfield' ? (
     autoComplete="false"
   />
 )
+export default TextInput 
