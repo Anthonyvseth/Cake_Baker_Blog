@@ -10,7 +10,7 @@ const connection = mongoose.connect('mongodb://localhost:27017/blog_log', {
 mongoose.connect(
   process.env.NODE_ENV === 'production'
     ? process.env.DATABASE_URL
-    : 'http://localhost:3002/'
+    : 'blog_log'
 )
 
 mongoose.set('debug', true)
