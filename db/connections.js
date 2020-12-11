@@ -11,7 +11,7 @@ mongoose.set('debug', true)
 mongoose.connection(
     process.env.NODE_ENV === 'production'
       ? process.env.DATABASE_URL
-      : '<Your local db connection>'
+      : 'blog_log'
   )
 
 module.exports = connection

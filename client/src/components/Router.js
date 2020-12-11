@@ -68,11 +68,7 @@ class Router extends Component {
               <Route
                 exact
                 path="/"
-                component={() => (
-                  <Layout>
-                    <Home />
-                  </Layout>
-                )}
+                component={() => ( <Layout><Home /></Layout>)}
               />
               <Route
                 path="/register"
