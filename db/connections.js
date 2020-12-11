@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 
 const connection = mongoose.connect('mongodb://localhost:27017/blog_log', {
@@ -6,12 +7,12 @@ const connection = mongoose.connect('mongodb://localhost:27017/blog_log', {
     useUnifiedTopology: true,
     useCreateIndex: true
 })
+mongoose.connect(
+  process.env.NODE_ENV === 'production'
+    ? process.env.DATABASE_URL
+    : 'http://localhost:3002/'
+)
 
 mongoose.set('debug', true)
-mongoose.connection(
-    process.env.NODE_ENV === 'production'
-      ? process.env.DATABASE_URL
-      : 'blog_log'
-  )
 
 module.exports = connection
