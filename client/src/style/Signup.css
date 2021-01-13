@@ -14,10 +14,13 @@
     height: 50%;
     width: 50%;
     padding: 3em;
+    background: transparent;
   }
   
   .signup form input, .signin form input {
     margin: 1em auto;
     width: 100%;
   }
+
+
   
