@@ -1,9 +1,8 @@
 import axios from 'axios'
 
-const ApiClient = axios.create(
-    {baseURL:process.env.NODE_ENV === 'production'
+const ApiClient = axios.create({baseURL:process.env.NODE_ENV === 'production'
 ? `${window.location.origin}/api`
-:'http://localhost:3005/api'})
+: 'http://localhost:3005/api'})
 
 ApiClient.interceptors.request.use(
     async (config) => {
