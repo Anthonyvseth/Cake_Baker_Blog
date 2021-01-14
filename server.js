@@ -5,10 +5,10 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const AppRouter = require('./routes/AppRouter')
 const connection = require('./db/connections')
+const path = require('path')
 
 const PORT = process.env.PORT || 3005
 const app = express()
-const path = require('path')
 
 app.use(logger('dev'))
 app.use(helmet({ contentSecurityPolicy: false }))
