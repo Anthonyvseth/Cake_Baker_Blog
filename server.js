@@ -20,15 +20,15 @@ app.use(express.static(path.join(__dirname, 'client', 'build')))
 
 app.disable('X-Powered-By')
 app.get('/api', (req,res) => {res.json({message: 'Server Working'})})
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+)
 app.use('/api', AppRouter)
 app.use((req ,res, next) => {
     const error = new Error(`Not Found - ${req.originalUrl}`)
     res.status(404)
     next(error)
 })
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-)
 
 app.listen(PORT, async () => {
     try {
