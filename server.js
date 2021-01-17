@@ -1,4 +1,3 @@
-const dotenv = require('dotenv')
 const express = require('express')
 const logger = require('morgan')
 const helmet = require('helmet')
@@ -8,7 +7,6 @@ const AppRouter = require('./routes/AppRouter')
 const connection = require('./db/connections')
 const path = require('path')
 
-dotenv.config()
 const PORT = process.env.PORT || 3005
 const app = express()
 
@@ -19,11 +17,10 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'client', 'build')))
+app.use('/api', AppRouter)
 
 app.disable('X-Powered-By')
 app.get('/api', (req,res) => {res.json({message: 'Server Working'})})
-app.use('/api', AppRouter)
-
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 )
