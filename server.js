@@ -1,3 +1,4 @@
+import dotenv  from 'dotenv'
 const express = require('express')
 const logger = require('morgan')
 const helmet = require('helmet')
@@ -7,6 +8,7 @@ const AppRouter = require('./routes/AppRouter')
 const connection = require('./db/connections')
 const path = require('path')
 
+dotenv.config()
 const PORT = process.env.PORT || 3005
 const app = express()
 
