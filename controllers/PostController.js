@@ -1,4 +1,4 @@
-const { BlogLog, User, Comment } = require('../db/schema')
+const { BlogLog, User, Comment } = require('../db/Schema')
 
 const GetPosts = async (req, res) => {
   const { page, limit } = req.query
