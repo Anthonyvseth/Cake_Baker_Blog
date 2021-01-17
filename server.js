@@ -1,4 +1,4 @@
-import dotenv  from 'dotenv'
+const dotenv = require('dotenv')
 const express = require('express')
 const logger = require('morgan')
 const helmet = require('helmet')
